@@ -11,12 +11,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        testAfterThrowing();
+        test();
+    }
+
+    private void test() {
+//        testAfterThrowing();
+        testAfterReturning();
+        testAround();
     }
 
     private void testAfterThrowing() {
         TextView textView = null;
-        textView.setText("aspectj");
+        textView.setText("testAfterThrowing");
     }
 
+    private TextView testAfterReturning() {
+        return findViewById(R.id.tv);
+    }
+
+    private void testAround() {
+        TextView textView = null;
+        textView.setText("testAround");
+    }
 }

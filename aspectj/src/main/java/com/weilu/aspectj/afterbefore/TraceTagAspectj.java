@@ -4,10 +4,11 @@ import android.os.Trace;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 
 
-//@Aspect
+@Aspect
 public class TraceTagAspectj {
 
     @Before("execution(* android.app.Activity+.onCreate(..))")
