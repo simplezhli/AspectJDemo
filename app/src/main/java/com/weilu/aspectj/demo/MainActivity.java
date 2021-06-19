@@ -1,9 +1,12 @@
 package com.weilu.aspectj.demo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.weilu.aspectj.withincode.Person;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
 //        testAfterThrowing();
         testAfterReturning();
         testAround();
+
+        Person person = new Person();
+        person.setAge(100);
+        Log.e("weilu", "age--->" + person.getAge());
     }
 
     private void testAfterThrowing() {
