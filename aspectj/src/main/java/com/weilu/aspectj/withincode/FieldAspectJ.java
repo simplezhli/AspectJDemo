@@ -11,11 +11,11 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class FieldAspectJ {
 
-    @Pointcut("!withincode(com.weilu.aspectj.demo.Person.new())")
+    @Pointcut("!withincode(com.weilu.aspectj.withincode.Person.new())")
     public void invokePerson() {
     }
 
-    @Around("set(int com.weilu.aspectj.demo.Person.age) && invokePerson()")
+    @Around("set(int com.weilu.aspectj.withincode.Person.age) && invokePerson()")
     public void aroundFieldSet(ProceedingJoinPoint joinPoint) throws Throwable {
         Log.e("weilu", "around->" + joinPoint.getTarget().toString() + "#" + joinPoint.getSignature().getName());
     }
