@@ -63,8 +63,20 @@ android.libraryVariants.all{ variant ->
 
         log.debug "ajc args: " + Arrays.toString(args)
 
+        def buildType = variant.buildType.name
+
+        String[] kotlinArgs = ["-showWeaveInfo",
+                               "-1.8",
+                               "-inpath", project.buildDir.path + "/tmp/kotlin-classes/" + buildType,
+                               "-aspectpath", javaCompile.classpath.asPath,
+                               "-d", project.buildDir.path + "/tmp/kotlin-classes/" + buildType,
+                               "-classpath", javaCompile.classpath.asPath,
+                               "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
+
         MessageHandler handler = new MessageHandler(true)
         new Main().run(args, handler)
+        new Main().run(kotlinArgs, handler)
+
         for (IMessage message : handler.getMessages(null, true)) {
             switch (message.getKind()) {
                 case IMessage.ABORT:
