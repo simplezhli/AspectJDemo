@@ -27,7 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        testAfterThrowing();
         testAfterReturning();
         testAround();
+        testWithInCode();
+    }
 
+    private void testWithInCode() {
         Person person = new Person();
         person.setAge(100);
         Log.e("weilu", "age--->" + person.getAge());
